@@ -1,0 +1,33 @@
+[project]
+name = "autotest-framework"
+version = "0.1.0"
+description = "API + UI automation framework with OpenAPI SDK generation"
+requires-python = ">=3.10"
+dependencies = [
+    "pytest>=8.0",
+    "requests>=2.31",
+    "pytest-playwright>=0.5",
+    "playwright>=1.40",
+    "allure-pytest>=2.13",
+    "pydantic-settings>=2.0",
+    "pyyaml>=6.0",
+    "openapi-python-client>=0.20",
+]
+
+[project.optional-dependencies]
+dev = ["pytest-cov", "ruff"]
+
+[project.scripts]
+gen-api = "scripts.gen_api:main"
+
+[tool.pytest.ini_options]
+markers = [
+    "api: interface automation tests",
+    "ui: browser UI automation tests",
+]
+addopts = "-ra --strict-markers"
+testpaths = ["api", "ui"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

@@ -1,0 +1,42 @@
+openapi: 3.0.3
+info:
+  title: Example API
+  version: "1.0.0"
+servers:
+  - url: https://httpbin.org
+paths:
+  /get:
+    get:
+      operationId: getEcho
+      summary: Echo back query params
+      parameters:
+        - in: query
+          name: foo
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+  /post:
+    post:
+      operationId: postJson
+      summary: Echo back JSON body
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Payload"
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    Payload:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        n:
+          type: integer

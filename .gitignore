@@ -1,0 +1,32 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# 平台
+backend/staticfiles/
+backend/media/
+backend/db.sqlite3
+
+# 前端
+frontend/node_modules/
+frontend/dist/
+
+# 报告
+target/
+allure-results/
+allure-report/
+playwright-report/
+test-results/
+
+# 生成的 SDK
+api/client/
+api/*-client/
+
+# docker
+*.log
